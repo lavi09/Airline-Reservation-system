@@ -1,23 +1,31 @@
 #pragma once
+#include "Passenger.h"
 #include "Airline.h"
 #include <iostream>
 #include <vector>
 
 
 namespace AirlineReservation {
-	const int kFirstSeatNumber = 1;
+	const int kFirstbookingNumber = 100;
 
 	class Database
 	{
 	public:
-		Airline& reserveseat(const std::string& Type, const std::string& From, const std::string& Destination, const std::string& DepartureDate, const std::string& ReturnDate);
-		Airline& getSeats(int seatNumber);
+		Passenger& addpassenger(const std::string& firstname, const std::string& lastname, const std::string& dob, const std::string& phone, const std::string& passport,
+			const std::string& country);
+		
+		Airline& addairline(const std::int16_t flightnumber, const std::string& airCarrier, const std::string& departureLocation, const std::string& departureDate,
+			const std::string& departureTime, const std::string&  arrivalLocation, const std::string& arrivalDate, const std::string& arrivalTime, const std::string& seatnumber, const std::string& departureTerminal, const std::string& arrivalTerminal);
 
-		void displayAll() const;
+
+		void displayPassengerDetails() const;
+		void displayFlightDetails() const;
+
 		
 
 	private:
-		std::vector<Airline> mSeats;
-		int mNextSeatNumber = kFirstSeatNumber;
+		std::vector< Passenger> mPassengers;
+		int mNextBookingNumber = kFirstbookingNumber;
+		std::vector<Airline> mAirlines;
 	};
 }

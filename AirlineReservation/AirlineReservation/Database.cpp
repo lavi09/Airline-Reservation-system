@@ -8,34 +8,44 @@ using namespace std;
 
 namespace AirlineReservation {
 
-	Airline& Database::reserveseat(const std::string& Type, const std::string& From, const std::string& Destination, const std::string& DepartureDate,
-		const std::string& ReturnDate)
+	Passenger& Database::addpassenger(const std::string& firstname, const std::string& lastname, const std::string& dob, const std::string& phone, const std::string& passport,
+		const std::string& country)
 	{
-		Airline theSeat(Type, From, Destination, DepartureDate, ReturnDate);
-		theSeat.setSeatNumber(mNextSeatNumber++);
-		theSeat.Reserve();
-		mSeats.push_back(theSeat);
+		Passenger thePassenger( firstname, lastname,dob,phone,passport,country);
+		thePassenger.setBookingNumber(mNextBookingNumber++);
+		thePassenger.Reserve();
+		mPassengers.push_back(thePassenger);
 
-		return mSeats[mSeats.size() - 1];
+		return mPassengers[mPassengers.size() - 1];
 	}
 
-	Airline& Database::getSeats(int seatNumber)
+
+	void Database::displayPassengerDetails() const
 	{
-		for (auto& seat : mSeats) 
+		for (const auto& Passenger : mPassengers) 
 		{
-			if (seat.getSeatNumber() == seatNumber) 
+			Passenger.PassengerDetails();
+		}
+	}
+
+	Airline& Database::addairline(const std::int16_t flightnumber, const std::string& airCarrier, const std::string& departureLocation, const std::string& departureDate,
+		const std::string& departureTime, const std::string&  arrivalLocation, const std::string& arrivalDate, const std::string& arrivalTime, const std::string& seatnumber, const std::string& departureTerminal, const std::string& arrivalTerminal)
+	{
+		Airline theAirline(flightnumber,airCarrier, departureLocation, departureDate, departureTime, arrivalLocation, arrivalDate, arrivalTime, seatnumber, arrivalTerminal, departureTerminal);
+		theAirline.book();
+		mAirlines.push_back(theAirline);
+		return mAirlines[mAirlines.size() - 1];
+	}
+
+
+	void Database::displayFlightDetails() const
+	{
+		for (const auto& Airline : mAirlines)
+		{
+			if (Airline.isBooked()) 
 			{
-				return seat;
+				Airline.FlightDetails();
 			}
 		}
-		throw logic_error("No seat found.");
 	}
-	void Database::displayAll() const
-	{
-		for (const auto& seat : mSeats) 
-		{
-			seat.display();
-		}
-	}
-
 }

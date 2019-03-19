@@ -1,5 +1,6 @@
 #include "pch.h"
 #include <iostream>
+#include <iomanip>
 #include "Airline.h"
 
 using namespace std;
@@ -7,84 +8,121 @@ using namespace std;
 namespace AirlineReservation
 {
 
-	Airline::Airline(const std::string& Type,const std::string& From, const std::string& Destination, const std::string& DepartureDate, const std::string& ReturnDate)
-		: mType(Type),mFrom(From),mDestination(Destination),mDepartureDate(DepartureDate),mReturnDate(ReturnDate)		
+	Airline::Airline(const std::int16_t flightnumber, const std::string& airCarrier, const std::string& departureLocation, const std::string& departureDate,
+		const std::string& departureTime, const std::string&  arrivalLocation, const std::string& arrivalDate, const std::string& arrivalTime,
+		const std::string& seatnumber, const std::string& departureTerminal, const std::string& arrivalTerminal)
+
+		: mFlightNumber(flightnumber), mCarrier(airCarrier), mDepartureLocation(departureLocation), mDepartureDate(departureDate),
+		mDepartureTime(departureTime), mArrivalLocation(arrivalLocation), mArrivalDate(arrivalDate), mArrivalTime(arrivalTime),
+		mSeatNumber(seatnumber), mDepartureTerminal(departureTerminal), mArrivalTerminal(arrivalTerminal)
 	{
-	}
-	void Airline::Reserve()
-	{
-		mReserved = true;
 	}
 
-	void Airline::setType(const string& Type)
+	void Airline::setFlightNumber(const std::int16_t flightnumber)
 	{
-		mType = Type;
+		mFlightNumber = flightnumber;
 	}
-
-	const string& Airline::getType() const
+	const std::int16_t Airline::getFlightNumber() const
 	{
-		return mType;
+		return mFlightNumber;
 	}
-
-	void Airline::setFrom(const string& From)
+	void Airline::setAirline(const std::string& airCarrier)
 	{
-		mFrom = From;
+		mCarrier = airCarrier;
 	}
-
-	const string& Airline::getFrom() const
+	const std::string& Airline::getAirline() const
 	{
-		return mFrom;
+		return mCarrier;
 	}
-
-	void Airline::setDestination(const string& Destination)
+	void Airline::setDepartureLocation(const std::string& departureLocation)
 	{
-		mDestination = Destination;
+		mDepartureLocation = departureLocation;
 	}
-
-	const string& Airline::getDestination() const
+	const std::string& Airline::getDepartureLocation() const
 	{
-		return mDestination;
+		return mDepartureLocation;
 	}
-	void Airline::setDepartureDate(const string& DepartureDate)
+	void Airline::setDepartureDate(const std::string& departureDate)
 	{
-		mDepartureDate = DepartureDate;
+		mDepartureDate = departureDate;
 	}
-	const string& Airline::getDepartureDate() const
+	const std::string&  Airline::getDepartureDate() const
 	{
 		return mDepartureDate;
 	}
-	void Airline::setReturnDate(const string& ReturnDate)
+	void Airline::setDepartureTime(const std::string&  departureTime)
 	{
-		mReturnDate = ReturnDate;
+		mDepartureTime = departureTime;
 	}
-	const string& Airline::getReturnDate() const
+	const std::string&  Airline::getDepartureTime() const
 	{
-		return mReturnDate;
+		return mDepartureTime;
 	}
-	void Airline::setSeatNumber(int seatNumber) {
-		mSeatNumber = seatNumber;
-	}
-
-	int Airline::getSeatNumber() const {
-		return mSeatNumber;
-	}
-
-	bool Airline::isReserved() const {
-		return mReserved;
-	}
-
-	void Airline::display() const
+	void Airline::setArrivalLocation(const std::string&  arrivalLocation)
 	{
-		cout << "Ticket Details: " << getType() <<endl;
-		cout << "-------------------------" << endl;
-		cout << "From: " << getFrom() << endl;
-		cout << "Destination: " << getDestination() << endl;
-		cout << "Departure Date: " << getDepartureDate() << endl;
-		cout << "Return Date: " << getReturnDate() << endl;
-		cout << (isReserved() ? "Seat Reserved" : "No seat") << endl;
-		cout << "Ticket Number: " << getSeatNumber() << endl;
+		mArrivalLocation = arrivalLocation;
+	}
+	const std::string&  Airline::getArrivalLocation() const
+	{
+		return mArrivalLocation;
+	}
+	void Airline::setArrivalDate(const std::string&  arrivalDate)
+	{
+		mArrivalDate = arrivalDate;
+	}
+	const std::string& Airline::getArrivalDate() const
+	{
+		return mArrivalDate;
+	}
+	void Airline::setArrivalTime(const std::string& arrivalTime)
+	{
+		mArrivalTime = arrivalTime;
+	}
+	const std::string&  Airline::getArrivalTime() const
+	{
+		return mArrivalTime;
+	}
+	void Airline::setArrivalTerminal(const std::string&  arrivalTerminal)
+	{
+		mArrivalTerminal = arrivalTerminal;
+	}
+	const std::string&  Airline::getArrivalTerminal() const
+	{
+		return mArrivalTerminal;
+	}
+	void Airline::setDepartureTerminal(const std::string&  departureTerminal)
+	{
+		mDepartureTerminal = departureTerminal;
+	}
+	const std::string&  Airline::getDepartureTerminal() const
+	{
+		return mDepartureTerminal;
+	}
+	bool Airline::isBooked() const 
+	{
+		return mBooked;
+
+	}
+	void Airline::book() 
+	{
+		mBooked = true;
+	}
 
 
-		cout << endl;
+
+	void Airline::FlightDetails() const
+	{
+		cout << "===================================================================================" << endl;
+		cout << "Flight Details" << endl;
+		cout << "===================================================================================" << endl;
+		cout << (isBooked() ? "Booked Airline " : "Not Booked Airline ");		
+		cout << " Carrier: " << getAirline() << endl;
+		cout << " Flight Number : " << getFlightNumber() << endl;
+		cout << " From " << getDepartureLocation() << " to " << getArrivalLocation() << endl;
+		cout << "====================================================================================" << endl;
+		cout << " Departure Terminal " << setw(16) << getDepartureTerminal() << setw(24) << "Arrival Terminal " << setw(16) << getArrivalTerminal() << endl;
+		cout << " Departure Time " << setw(20) << getDepartureTime() << setw(20) << "Arrival Time " << setw(20) << getArrivalTime() << endl;
+		cout << " Departure Date " << setw(20) << getDepartureDate() << setw(20) << "Arrival Date " << setw(20) << getArrivalDate() << endl;
+		cout << "====================================================================================" << endl;
 	}
 }
