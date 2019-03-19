@@ -152,11 +152,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Airline.h" />
+    <ClInclude Include="Passenger.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Airline.cpp" />
+    <ClCompile Include="Passenger.cpp" />
     <ClCompile Include="AirlineReservation.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="pch.cpp">
