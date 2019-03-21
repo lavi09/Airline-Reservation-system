@@ -20,6 +20,7 @@ namespace AirlineReservation {
 
 		void displayPassengerDetails() const;
 		void displayFlightDetails() const;
+		void displayTicketDetails() const;
 
 		
 
@@ -27,5 +28,7 @@ namespace AirlineReservation {
 		std::vector< Passenger> mPassengers;
 		int mNextBookingNumber = kFirstbookingNumber;
 		std::vector<Airline> mAirlines;
+		std::vector<Airline> mTickets;
+
 	};
 }

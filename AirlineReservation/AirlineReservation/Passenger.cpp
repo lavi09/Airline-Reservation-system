@@ -85,19 +85,29 @@ namespace AirlineReservation
 
 	void  Passenger::PassengerDetails() const
 	{
-		cout << "Passenger Details: "  <<endl;
-		cout << "-------------------------" << endl;
-		cout << "Booking Number: " << getBookingNumber() << endl;
-		cout << "First Name: " << getFirstName() << endl;
-		cout << "Last Name: " << getLastName() << endl;
-		cout << "Date of Birth: " << getDOB() << endl;
-		cout << "Contact: " << getContact() << endl;		
-		cout << "Passport Number: " << getPassport() << endl;
-		cout << "Country: " << getCountry() << endl;
+		cout << "        PASSENGER DETAILS"  <<endl;
+		cout << "| ****************************************" << endl << endl;
+		cout << "| Booking Number: " << getBookingNumber() << endl << endl;
+		cout << "| First Name: " << getFirstName() << endl << endl;
+		cout << "| Last Name: " << getLastName() << endl << endl;
+		cout << "| Date of Birth: " << getDOB() << endl << endl;
+		cout << "| Contact: " << getContact() << endl << endl;
+		cout << "| Passport Number: " << getPassport() << endl << endl;
+		cout << "| Country: " << getCountry() << endl << endl;
 		
 		cout << endl;
 	}
 
-	
+	void Passenger::TicketDetails() const {
+		cout << " |PASSENGER " << endl;
+		cout << " |" << getFirstName() << "  " << getLastName() << endl;
+		cout << " |" << endl;
+		cout << " |*******************************************************************************************************************" << endl;
+		cout << " |                                                                                              |||||||||||||||||||||" << endl;
+		cout << " |                                                                                              |||||||||||||||||||||" << endl;
+		cout << " |                                                                                              |||||||||||||||||||||" << endl;
+		cout << " |*******************************************************************************************************************" << endl;
+	}
+
 
 }

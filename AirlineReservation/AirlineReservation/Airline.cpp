@@ -98,6 +98,14 @@ namespace AirlineReservation
 	{
 		return mDepartureTerminal;
 	}
+	void Airline::setSeatNumber(const std::string&  seatnumber)
+	{
+		mSeatNumber = seatnumber;
+	}
+	const std::string&  Airline::getSeatNumber() const
+	{
+		return mSeatNumber;
+	}
 	bool Airline::isBooked() const 
 	{
 		return mBooked;
@@ -112,17 +120,33 @@ namespace AirlineReservation
 
 	void Airline::FlightDetails() const
 	{
-		cout << "===================================================================================" << endl;
+		cout << "===================================================================================" << endl << endl;
 		cout << "Flight Details" << endl;
-		cout << "===================================================================================" << endl;
+		cout << "===================================================================================" << endl << endl;
 		cout << (isBooked() ? "Booked Airline " : "Not Booked Airline ");		
-		cout << " Carrier: " << getAirline() << endl;
-		cout << " Flight Number : " << getFlightNumber() << endl;
-		cout << " From " << getDepartureLocation() << " to " << getArrivalLocation() << endl;
-		cout << "====================================================================================" << endl;
-		cout << " Departure Terminal " << setw(16) << getDepartureTerminal() << setw(24) << "Arrival Terminal " << setw(16) << getArrivalTerminal() << endl;
-		cout << " Departure Time " << setw(20) << getDepartureTime() << setw(20) << "Arrival Time " << setw(20) << getArrivalTime() << endl;
-		cout << " Departure Date " << setw(20) << getDepartureDate() << setw(20) << "Arrival Date " << setw(20) << getArrivalDate() << endl;
-		cout << "====================================================================================" << endl;
+		cout << " Carrier: " << getAirline() << endl << endl;
+		cout << " Flight Number : " << getFlightNumber() << endl << endl;
+		cout << " From " << getDepartureLocation() << " to " << getArrivalLocation() << endl << endl;
+		cout << "====================================================================================" << endl << endl;
+		cout << " Departure Terminal " << setw(16) << getDepartureTerminal() << setw(24) << "Arrival Terminal " << setw(16) << getArrivalTerminal() << endl << endl;
+		cout << " Departure Time " << setw(20) << getDepartureTime() << setw(20) << "Arrival Time " << setw(20) << getArrivalTime() << endl << endl;
+		cout << " Departure Date " << setw(20) << getDepartureDate() << setw(20) << "Arrival Date " << setw(20) << getArrivalDate() << endl << endl;
+		cout << "====================================================================================" << endl << endl;
+	}
+
+	void Airline::TicketDetails() const {
+		cout << endl;
+		cout << " |*******************************************************************************************************************" << endl;
+		cout << " |" << endl;
+		cout << " |FLIGHT " << setw(39) << "DESTINATION " << endl;
+		cout << " |" << getAirline() << setw(35) << getDepartureLocation() << "  To  " << getArrivalLocation() << endl;
+		cout << " |" << endl;
+		cout << " |DEPARTURE " << setw(39) << "DEPARTURE TERMINAL " << endl;
+		cout << " |" << getDepartureTime() << "  " << getDepartureDate() << setw(20) << getDepartureTerminal() << endl;
+		cout << " |" << endl;
+		cout << " |SEAT " << endl;
+		cout << " |" << getSeatNumber() << endl;
+		cout << " |" << endl;
+
 	}
 }
