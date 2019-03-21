@@ -10,6 +10,7 @@ namespace AirlineReservation {
 
 
 		void FlightDetails() const;
+		void TicketDetails() const;
 		bool isBooked() const;
 
 		void book();
@@ -44,6 +45,8 @@ namespace AirlineReservation {
 		void setDepartureTerminal(const std::string& departureTerminal);
 		const std::string& getDepartureTerminal() const;
 		
+		void setSeatNumber(const std::string& seatnumber);
+		const std::string& getSeatNumber() const;
 
 
 	private:

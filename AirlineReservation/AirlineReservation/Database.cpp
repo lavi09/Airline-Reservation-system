@@ -24,7 +24,12 @@ namespace AirlineReservation {
 	{
 		for (const auto& Passenger : mPassengers) 
 		{
-			Passenger.PassengerDetails();
+			if (Passenger.isReserved())
+			{
+								
+				Passenger.PassengerDetails();
+			
+			}
 		}
 	}
 
@@ -46,6 +51,26 @@ namespace AirlineReservation {
 			{
 				Airline.FlightDetails();
 			}
+		}
+	}
+
+	void Database::displayTicketDetails() const
+	{
+		for (const auto& Airline : mAirlines)
+		{
+			if (Airline.isBooked())
+			{
+				Airline.TicketDetails();
+				
+			}
+		}
+		for (const auto& Passenger : mPassengers)
+		{		
+		    if (Passenger.isReserved())
+			{
+				Passenger.TicketDetails();
+			}
+			
 		}
 	}
 }

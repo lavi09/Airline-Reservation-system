@@ -9,7 +9,8 @@ namespace AirlineReservation {
 			const std::string& country);
 
 		void Reserve();
-		void PassengerDetails() const;		
+		void PassengerDetails() const;
+		void TicketDetails() const;
 
 		void setFirstName(const std::string& firstname);
 		const std::string& getFirstName() const;
