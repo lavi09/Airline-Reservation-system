@@ -137,6 +137,8 @@ namespace AirlineReservation
 	void Airline::TicketDetails() const {
 		cout << endl;
 		cout << " |*******************************************************************************************************************" << endl;
+		cout << " |       Ticket Details" << endl;		
+		cout << " |*******************************************************************************************************************" << endl;
 		cout << " |" << endl;
 		cout << " |FLIGHT " << setw(39) << "DESTINATION " << endl;
 		cout << " |" << getAirline() << setw(35) << getDepartureLocation() << "  To  " << getArrivalLocation() << endl;
