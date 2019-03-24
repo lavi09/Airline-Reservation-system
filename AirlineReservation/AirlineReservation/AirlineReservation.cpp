@@ -1,11 +1,8 @@
 // AirlineReservation.cpp : This file contains the 'main' function. Program execution begins and ends there.
 
 #include "pch.h"
-#include <iostream>
 #include "Database.h"
-
-
-
+#include <iostream>
 
 using namespace std;
 using namespace AirlineReservation;
@@ -123,20 +120,6 @@ void doReserve(Database& db)
 	cout << "Enter the flight number :";
 	cin  >> flightnumber;
 	cout << endl;
-
-	try
-	{
-		if (flightnumber > 5)
-		{
-			cout << "Invalid flightnumber ,Try Again !!"<<endl;
-			throw(flightnumber);
-		}
-	}
-	catch(int flightnumber)
-	{
-		cout << "Enter the flight number :";
-		cin >> flightnumber;
-	}
 	cout << "Enter your First Name :";
     cin >> firstname;
 	cout << endl;
@@ -148,39 +131,10 @@ void doReserve(Database& db)
 	cout << endl;
 	cout << "Enter your contact number:";
 	cin >> phone;
-	cout << endl;
-	try {
-		if (phone.length() != 10)
-		{
-			cout << "Number is invalid ,Enter 10 digits"<<endl;
-			throw(phone);
-		}
-	}
-	catch (string phone)
-	{
-		cout << "Enter your contact number:";
-		cin >> phone;
-	}
-	/*cout << "Enter your passport number:";
-	cin >> passport;*/
-	cout << endl;
-	try
-	{
-		cout << "Enter your passport number:";
-		cin >> passport;
-
-		if (passport.length() != 9)
-		{
-			cout << "Number is invalid ,Enter 9 digits"<<endl;
-			throw(passport);
-
-		}
-	}
-	catch(string passport)
-	{
-		cout << "Enter your passport number:";
-		cin >> passport;
-	}
+	cout << endl;	
+	cout << "Enter your passport number:";
+	cin >> passport;
+	cout << endl;	
 	cout << "Enter your Country :";
 	cin >> country;
 	cout << endl;
@@ -205,10 +159,10 @@ void doReserve(Database& db)
 
 	string carrier[] = { "Alaska", "Delta", "American", "JetAirways", "SouthWest"};
 	string dcity[] = { "Seattle", "Seattle", "Seattle", "Seattle", "Seattle" };
-	string ddate[] = { "03/20/2019", "03/20/2019", "03/25/2019", "03/22/2019", "03/28/2019"};
+	string ddate[] = { "04/20/2019", "04/20/2019", "04/25/2019", "04/22/2019", "04/28/2019"};
 	string dtime[] = { "9AM", "11AM", " 6AM", "3PM", "12PM"};
 	string acity[] = { "LosAngeles", "Portland", "SanFrancisco", "Washington", "LasVegas"};
-	string adate[] = { "03/21/2019", "03/23/2019", "03/20/2019", "04/01/2019", "04/10/2019"};
+	string adate[] = { "04/21/2019", "04/23/2019", "04/20/2019", "05/01/2019", "05/10/2019"};
 	string atime[] = { " 4PM", " 1PM", " 10AM", " 5PM", " 4PM"};
 	string dterminal[] = { "1", "2", "3", "4", "5", "6" };
 	string aterminal[] = { "7", "8", "9", "10", "11", "12" };
@@ -238,14 +192,15 @@ void doReserve(Database& db)
 }
 void flightschedule()
 {
-	
-	cout << "FlightNumber  Airline   DepartureDate   DeparureTime    From             To              ReturningDate   ReturningTime " << endl;
-	cout << "    1        Alaska     03/20/2019       9.00 A.M       Seattle(SEA)     LosAngeles(LAX)      03/21/2019    4.00 P.M " << endl;
-	cout << "    2        Delta      03/20/2019       11.00 A.M      Seattle (SEA)    Portland(PDX)        03/23/2019    1.00 P.M " << endl;
-	cout << "    3        American   03/25/2019       6.00 A.M       Seattle (SEA)    SanFrancisco(SFO)    03/30/2019    10.00 A.M " << endl;
-	cout << "    4        JetAirways 03/22/2019       3.00 P.M       Seattle (SEA)    Washington D.C(BWI)  04/01/2019    5.00 P.M " << endl;
-	cout << "    5        SouthWest  03/28/2019       12.00 P.M      Seattle (SEA)    Las Vegas(LAS)       04/10/2019    4.00 P.M " << endl;
-	cout << endl<<endl;
+	cout << "                                  Airline Schedule" << endl<<endl;
+	cout << "===================================================================================================================" << endl;
+	for (int i = 0; i < 1; i++) {
+		cout << HEADING[i] << endl;
+	}
+	cout << "====================================================================================================================" << endl;
+	for (int i = 0; i < 5; i++) {
+		cout << AIRLINE_NUMBER[i] << AIRLINE_DETAILS[i] << endl <<endl;
+	}
 	
 }
 void pauseAndClear() {

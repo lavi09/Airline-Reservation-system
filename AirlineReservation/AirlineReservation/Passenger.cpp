@@ -98,7 +98,8 @@ namespace AirlineReservation
 		cout << endl;
 	}
 
-	void Passenger::TicketDetails() const {
+	void Passenger::TicketDetails() const 
+	{
 		cout << " |PASSENGER " << endl;
 		cout << " |" << getFirstName() << "  " << getLastName() << endl;
 		cout << " |" << endl;
